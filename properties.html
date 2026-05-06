@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties – LandMark Realty Nigeria</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header header--solid" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-icon"><i class="fas fa-building"></i></span>
+        <span>LandMark<strong>Realty</strong></span>
+      </a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="properties.html" class="nav__link active">Properties</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+        <li><a href="testimonials.html" class="nav__link">Testimonials</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="tel:+2348000000000" class="nav__phone"><i class="fas fa-phone"></i> +234 800 000 0000</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">List Property</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="page-banner__bg pb-properties"></div>
+    <div class="page-banner__overlay"></div>
+    <div class="container page-banner__content">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Properties</span>
+      </nav>
+      <h1>Browse All <span class="highlight">Properties</span></h1>
+      <p>Over 5,000 verified listings across Nigeria — find exactly what you're looking for</p>
+    </div>
+  </section>
+
+  <!-- SEARCH BAR -->
+  <section class="search-bar-section">
+    <div class="container">
+      <div class="search-box search-box--flat">
+        <div class="search-box__tabs">
+          <button class="search-tab active" data-tab="buy">Buy</button>
+          <button class="search-tab" data-tab="rent">Rent</button>
+          <button class="search-tab" data-tab="shortlet">Short Let</button>
+          <button class="search-tab" data-tab="land">Land</button>
+          <button class="search-tab" data-tab="commercial">Commercial</button>
+        </div>
+        <div class="search-box__form">
+          <div class="search-field">
+            <i class="fas fa-map-marker-alt"></i>
+            <select>
+              <option value="">Select State</option>
+              <option>Lagos</option><option>Abuja (FCT)</option><option>Rivers State</option>
+              <option>Ogun State</option><option>Kano State</option><option>Delta State</option>
+              <option>Enugu State</option><option>Oyo State</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <i class="fas fa-home"></i>
+            <select>
+              <option value="">Property Type</option>
+              <option>Detached Duplex</option><option>Semi-Detached Duplex</option>
+              <option>Terrace House</option><option>Flat / Apartment</option>
+              <option>Bungalow</option><option>Mansion</option><option>Land</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <i class="fas fa-bed"></i>
+            <select>
+              <option value="">Bedrooms</option>
+              <option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option>
+              <option>4 Bedrooms</option><option>5+ Bedrooms</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <i class="fas fa-tag"></i>
+            <select>
+              <option value="">Price Range</option>
+              <option>Below ₦5M</option><option>₦5M – ₦20M</option><option>₦20M – ₦50M</option>
+              <option>₦50M – ₦100M</option><option>₦100M – ₦500M</option><option>Above ₦500M</option>
+            </select>
+          </div>
+          <button class="btn btn--gold btn--search"><i class="fas fa-search"></i> Search</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPERTIES LISTING -->
+  <section class="section" style="padding-top: 48px;">
+    <div class="container">
+      <div class="listing-header">
+        <div class="listing-header__info">
+          <h2>Showing <strong>5,248</strong> Properties</h2>
+          <p>Updated daily with new listings</p>
+        </div>
+        <div class="listing-header__controls">
+          <div class="sort-control">
+            <label><i class="fas fa-sort"></i> Sort by:</label>
+            <select>
+              <option>Newest First</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+              <option>Most Popular</option>
+            </select>
+          </div>
+          <div class="view-toggle">
+            <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="filter-pills">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="buy">For Sale</button>
+        <button class="pill" data-filter="rent">For Rent</button>
+        <button class="pill" data-filter="shortlet">Short Let</button>
+        <button class="pill" data-filter="land">Land</button>
+        <button class="pill" data-filter="new">New Dev</button>
+        <button class="pill" data-filter="commercial">Commercial</button>
+      </div>
+
+      <div class="properties-grid" id="propertiesGrid">
+
+        <div class="property-card reveal" data-category="buy">
+          <div class="property-card__image"><div class="property-card__img-placeholder p1"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--featured">Featured</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦250,000,000</div>
+            <h3 class="property-card__title">Luxury 5-Bedroom Mansion</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Banana Island, Ikoyi, Lagos</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 5 Beds</span><span><i class="fas fa-bath"></i> 6 Baths</span><span><i class="fas fa-ruler-combined"></i> 1,200 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av1"></div><span>Chidi Okafor</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="rent">
+          <div class="property-card__image"><div class="property-card__img-placeholder p2"></div>
+            <div class="property-card__badges"><span class="badge badge--rent">For Rent</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦8,500,000 <span>/yr</span></div>
+            <h3 class="property-card__title">4-Bed Semi-Detached Duplex</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Lekki Phase 1, Lagos</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 4 Beds</span><span><i class="fas fa-bath"></i> 4 Baths</span><span><i class="fas fa-ruler-combined"></i> 450 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av2"></div><span>Amaka Eze</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="buy">
+          <div class="property-card__image"><div class="property-card__img-placeholder p3"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--new">New</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦150,000,000</div>
+            <h3 class="property-card__title">5-Bed Detached Duplex</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Maitama, Abuja</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 5 Beds</span><span><i class="fas fa-bath"></i> 5 Baths</span><span><i class="fas fa-ruler-combined"></i> 800 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av3"></div><span>Emeka Nwosu</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="shortlet">
+          <div class="property-card__image"><div class="property-card__img-placeholder p4"></div>
+            <div class="property-card__badges"><span class="badge badge--shortlet">Short Let</span><span class="badge badge--featured">Featured</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦350,000 <span>/night</span></div>
+            <h3 class="property-card__title">Luxury 3-Bed Penthouse</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Victoria Island, Lagos</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 3 Beds</span><span><i class="fas fa-bath"></i> 3 Baths</span><span><i class="fas fa-ruler-combined"></i> 380 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av4"></div><span>Funmi Adeyemi</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="land">
+          <div class="property-card__image"><div class="property-card__img-placeholder p5"></div>
+            <div class="property-card__badges"><span class="badge badge--land">Land</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦75,000,000</div>
+            <h3 class="property-card__title">Residential Land – 2 Plots</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Ibeju-Lekki, Lagos</p>
+            <div class="property-card__features"><span><i class="fas fa-expand-arrows-alt"></i> 1,200 sqm</span><span><i class="fas fa-file-alt"></i> C of O</span><span><i class="fas fa-road"></i> Road Access</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av1"></div><span>Chidi Okafor</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="buy new">
+          <div class="property-card__image"><div class="property-card__img-placeholder p6"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--new">New Dev</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦45,000,000</div>
+            <h3 class="property-card__title">3-Bed Terrace House</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Sangotedo, Ajah, Lagos</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 3 Beds</span><span><i class="fas fa-bath"></i> 3 Baths</span><span><i class="fas fa-ruler-combined"></i> 220 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av2"></div><span>Amaka Eze</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="rent">
+          <div class="property-card__image"><div class="property-card__img-placeholder p1" style="filter:hue-rotate(40deg)"></div>
+            <div class="property-card__badges"><span class="badge badge--rent">For Rent</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦3,200,000 <span>/yr</span></div>
+            <h3 class="property-card__title">Modern 2-Bed Apartment</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Wuse 2, Abuja</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 2 Beds</span><span><i class="fas fa-bath"></i> 2 Baths</span><span><i class="fas fa-ruler-combined"></i> 140 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av3"></div><span>Emeka Nwosu</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="commercial">
+          <div class="property-card__image"><div class="property-card__img-placeholder p3" style="filter:hue-rotate(120deg)"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">Commercial</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦180,000,000</div>
+            <h3 class="property-card__title">5-Floor Office Complex</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Ikeja GRA, Lagos</p>
+            <div class="property-card__features"><span><i class="fas fa-building"></i> 5 Floors</span><span><i class="fas fa-car"></i> 40 Parking</span><span><i class="fas fa-ruler-combined"></i> 3,200 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av3"></div><span>Emeka Nwosu</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+        <div class="property-card reveal" data-category="buy">
+          <div class="property-card__image"><div class="property-card__img-placeholder p4" style="filter:hue-rotate(60deg)"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">For Sale</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="#" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦95,000,000</div>
+            <h3 class="property-card__title">4-Bed Detached Bungalow</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> GRA Phase 2, Port Harcourt</p>
+            <div class="property-card__features"><span><i class="fas fa-bed"></i> 4 Beds</span><span><i class="fas fa-bath"></i> 4 Baths</span><span><i class="fas fa-ruler-combined"></i> 600 sqm</span></div>
+            <div class="property-card__footer"><div class="property-card__agent"><div class="agent-avatar av1"></div><span>Chidi Okafor</span></div><a href="#" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAGINATION -->
+      <div class="pagination">
+        <button class="page-btn page-btn--prev" disabled><i class="fas fa-chevron-left"></i></button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <span class="page-dots">...</span>
+        <button class="page-btn">24</button>
+        <button class="page-btn page-btn--next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container footer__top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__logo"><span class="nav__logo-icon"><i class="fas fa-building"></i></span><span>LandMark<strong>Realty</strong></span></a>
+          <p>Nigeria's most trusted real estate company — connecting people with premium properties since 2009.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links"><h4>Quick Links</h4><ul>
+          <li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li>
+          <li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Property Types</h4><ul>
+          <li><a href="properties.html">Houses for Sale</a></li><li><a href="properties.html">Houses for Rent</a></li>
+          <li><a href="properties.html">Short Let Apartments</a></li><li><a href="properties.html">Land for Sale</a></li>
+          <li><a href="properties.html">Commercial Properties</a></li><li><a href="properties.html">New Developments</a></li>
+        </ul></div>
+        <div class="footer-links"><h4>Top Locations</h4><ul>
+          <li><a href="properties.html">Lagos – Lekki</a></li><li><a href="properties.html">Lagos – Ikoyi</a></li>
+          <li><a href="properties.html">Lagos – Victoria Island</a></li><li><a href="properties.html">Abuja – Maitama</a></li>
+          <li><a href="properties.html">Abuja – Wuse 2</a></li><li><a href="properties.html">Port Harcourt – GRA</a></li>
+        </ul></div>
+        <div class="footer-newsletter"><h4>Property Alerts</h4><p>Get notified when new properties matching your criteria are listed.</p>
+          <form class="newsletter-form" id="newsletterForm"><input type="email" placeholder="Enter your email" required /><button type="submit" class="btn btn--gold">Subscribe</button></form>
+          <div class="footer-certifications"><span><i class="fas fa-shield-alt"></i> LASRERA Certified</span><span><i class="fas fa-award"></i> ARCON Member</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom"><div class="container footer__bottom-inner">
+      <p>&copy; 2025 LandMark Realty Nigeria Ltd. All rights reserved.</p>
+      <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div>
+    </div></div>
+  </footer>
+
+  <a href="https://wa.me/2348000000000" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>Chat with us</span></a>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+  <script src="js/main.js"></script>
+</body>
+</html>

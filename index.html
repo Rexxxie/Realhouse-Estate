@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LandMark Realty – Premium Properties in Nigeria</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-icon"><i class="fas fa-building"></i></span>
+        <span>LandMark<strong>Realty</strong></span>
+      </a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link active">Home</a></li>
+        <li><a href="properties.html" class="nav__link">Properties</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+        <li><a href="testimonials.html" class="nav__link">Testimonials</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+        <li><a href="blog.html" class="nav__link">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="tel:+2348000000000" class="nav__phone"><i class="fas fa-phone"></i> +234 800 000 0000</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">List Property</a>
+        <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero__bg">
+      <div class="hero__overlay"></div>
+      <div class="hero__slides">
+        <div class="hero__slide hero__slide--1 active"></div>
+        <div class="hero__slide hero__slide--2"></div>
+        <div class="hero__slide hero__slide--3"></div>
+      </div>
+    </div>
+    <div class="hero__content container">
+      <div class="hero__badge">Nigeria's #1 Real Estate Platform</div>
+      <h1 class="hero__title">Find Your <span class="highlight">Dream Home</span><br />Anywhere in Nigeria</h1>
+      <p class="hero__subtitle">Discover thousands of premium properties — from Lagos to Abuja, Port Harcourt to Kano. Your perfect home is one search away.</p>
+
+      <div class="search-box">
+        <div class="search-box__tabs">
+          <button class="search-tab active" data-tab="buy">Buy</button>
+          <button class="search-tab" data-tab="rent">Rent</button>
+          <button class="search-tab" data-tab="shortlet">Short Let</button>
+          <button class="search-tab" data-tab="land">Land</button>
+        </div>
+        <div class="search-box__form">
+          <div class="search-field">
+            <i class="fas fa-map-marker-alt"></i>
+            <select>
+              <option value="">Select State</option>
+              <option>Lagos</option><option>Abuja (FCT)</option><option>Rivers State</option>
+              <option>Ogun State</option><option>Kano State</option><option>Delta State</option>
+              <option>Enugu State</option><option>Oyo State</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <i class="fas fa-home"></i>
+            <select>
+              <option value="">Property Type</option>
+              <option>Detached Duplex</option><option>Semi-Detached Duplex</option>
+              <option>Terrace House</option><option>Flat / Apartment</option>
+              <option>Bungalow</option><option>Mansion</option><option>Land</option><option>Commercial</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <i class="fas fa-bed"></i>
+            <select>
+              <option value="">Bedrooms</option>
+              <option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option>
+              <option>4 Bedrooms</option><option>5+ Bedrooms</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <i class="fas fa-tag"></i>
+            <select>
+              <option value="">Price Range</option>
+              <option>Below ₦5M</option><option>₦5M – ₦20M</option><option>₦20M – ₦50M</option>
+              <option>₦50M – ₦100M</option><option>₦100M – ₦500M</option><option>Above ₦500M</option>
+            </select>
+          </div>
+          <a href="properties.html" class="btn btn--gold btn--search"><i class="fas fa-search"></i> Search</a>
+        </div>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat"><span class="hero__stat-number" data-count="5000">0</span><span>+</span><span class="hero__stat-label">Properties</span></div>
+        <div class="hero__stat"><span class="hero__stat-number" data-count="12000">0</span><span>+</span><span class="hero__stat-label">Happy Clients</span></div>
+        <div class="hero__stat"><span class="hero__stat-number" data-count="36">0</span><span></span><span class="hero__stat-label">States Covered</span></div>
+        <div class="hero__stat"><span class="hero__stat-number" data-count="15">0</span><span>yrs</span><span class="hero__stat-label">Experience</span></div>
+      </div>
+    </div>
+    <div class="hero__scroll"><a href="#featured"><i class="fas fa-chevron-down"></i></a></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <span><i class="fas fa-star"></i> New Listing: 5-Bed Mansion, Banana Island, Lagos</span>
+      <span><i class="fas fa-fire"></i> Hot Deal: 3-Bed Terrace, Lekki Phase 1 – ₦85M</span>
+      <span><i class="fas fa-star"></i> New Listing: 4-Bed Duplex, Maitama, Abuja</span>
+      <span><i class="fas fa-fire"></i> Shortlet: Luxury 2-Bed, Victoria Island – ₦250k/Night</span>
+      <span><i class="fas fa-star"></i> Land for Sale: 1,000 sqm, Ibeju-Lekki – ₦35M</span>
+      <span><i class="fas fa-fire"></i> New Listing: 6-Bed Mansion, GRA Port Harcourt</span>
+      <span><i class="fas fa-star"></i> 3-Bed Flat, Wuse 2, Abuja – ₦4.5M/yr</span>
+      <span><i class="fas fa-fire"></i> Commercial Space, Ikeja – ₦12M/yr</span>
+      <span><i class="fas fa-star"></i> New Listing: 5-Bed Mansion, Banana Island, Lagos</span>
+      <span><i class="fas fa-fire"></i> Hot Deal: 3-Bed Terrace, Lekki Phase 1 – ₦85M</span>
+      <span><i class="fas fa-star"></i> New Listing: 4-Bed Duplex, Maitama, Abuja</span>
+      <span><i class="fas fa-fire"></i> Shortlet: Luxury 2-Bed, Victoria Island – ₦250k/Night</span>
+    </div>
+  </div>
+
+  <!-- FEATURED PROPERTIES -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Handpicked for You</span>
+        <h2 class="section__title">Featured <span class="highlight">Properties</span></h2>
+        <p class="section__subtitle">Premium properties from Nigeria's most sought-after locations</p>
+      </div>
+
+      <div class="properties-grid properties-grid--3">
+        <div class="property-card reveal">
+          <div class="property-card__image">
+            <div class="property-card__img-placeholder p1"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--featured">Featured</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="properties.html" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦250,000,000</div>
+            <h3 class="property-card__title">Luxury 5-Bedroom Mansion</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Banana Island, Ikoyi, Lagos</p>
+            <div class="property-card__features">
+              <span><i class="fas fa-bed"></i> 5 Beds</span>
+              <span><i class="fas fa-bath"></i> 6 Baths</span>
+              <span><i class="fas fa-ruler-combined"></i> 1,200 sqm</span>
+            </div>
+            <div class="property-card__footer">
+              <div class="property-card__agent"><div class="agent-avatar av1"></div><span>Chidi Okafor</span></div>
+              <a href="properties.html" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-card__image">
+            <div class="property-card__img-placeholder p2"></div>
+            <div class="property-card__badges"><span class="badge badge--rent">For Rent</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="properties.html" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦8,500,000 <span>/yr</span></div>
+            <h3 class="property-card__title">4-Bed Semi-Detached Duplex</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Lekki Phase 1, Lagos</p>
+            <div class="property-card__features">
+              <span><i class="fas fa-bed"></i> 4 Beds</span>
+              <span><i class="fas fa-bath"></i> 4 Baths</span>
+              <span><i class="fas fa-ruler-combined"></i> 450 sqm</span>
+            </div>
+            <div class="property-card__footer">
+              <div class="property-card__agent"><div class="agent-avatar av2"></div><span>Amaka Eze</span></div>
+              <a href="properties.html" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card reveal">
+          <div class="property-card__image">
+            <div class="property-card__img-placeholder p3"></div>
+            <div class="property-card__badges"><span class="badge badge--sale">For Sale</span><span class="badge badge--new">New</span></div>
+            <button class="property-card__wishlist"><i class="far fa-heart"></i></button>
+            <div class="property-card__overlay"><a href="properties.html" class="btn btn--white btn--sm">View Details</a></div>
+          </div>
+          <div class="property-card__body">
+            <div class="property-card__price">₦150,000,000</div>
+            <h3 class="property-card__title">5-Bed Detached Duplex</h3>
+            <p class="property-card__location"><i class="fas fa-map-marker-alt"></i> Maitama, Abuja</p>
+            <div class="property-card__features">
+              <span><i class="fas fa-bed"></i> 5 Beds</span>
+              <span><i class="fas fa-bath"></i> 5 Baths</span>
+              <span><i class="fas fa-ruler-combined"></i> 800 sqm</span>
+            </div>
+            <div class="property-card__footer">
+              <div class="property-card__agent"><div class="agent-avatar av3"></div><span>Emeka Nwosu</span></div>
+              <a href="properties.html" class="property-card__cta">Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section__cta">
+        <a href="properties.html" class="btn btn--outline btn--lg">View All Properties <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPULAR CITIES -->
+  <section class="cities-section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Browse by Location</span>
+        <h2 class="section__title">Popular <span class="highlight">Cities</span></h2>
+        <p class="section__subtitle">Search properties in Nigeria's most active real estate markets</p>
+      </div>
+      <div class="cities-grid">
+        <div class="city-card city-card--large"><div class="city-card__bg city-bg-1"></div><div class="city-card__content"><h3>Lagos</h3><span>1,842 Properties</span></div></div>
+        <div class="city-card"><div class="city-card__bg city-bg-2"></div><div class="city-card__content"><h3>Abuja</h3><span>934 Properties</span></div></div>
+        <div class="city-card"><div class="city-card__bg city-bg-3"></div><div class="city-card__content"><h3>Port Harcourt</h3><span>412 Properties</span></div></div>
+        <div class="city-card"><div class="city-card__bg city-bg-4"></div><div class="city-card__content"><h3>Ibadan</h3><span>287 Properties</span></div></div>
+        <div class="city-card"><div class="city-card__bg city-bg-5"></div><div class="city-card__content"><h3>Enugu</h3><span>195 Properties</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section__header section__header--white">
+        <span class="section__tag section__tag--gold">How It Works</span>
+        <h2 class="section__title" style="color:var(--white)">Buy Your Property in <span class="highlight">4 Simple Steps</span></h2>
+      </div>
+      <div class="process-steps">
+        <div class="process-step"><div class="process-step__number">01</div><div class="process-step__icon"><i class="fas fa-search"></i></div><h3>Search & Shortlist</h3><p>Filter properties by location, type, and budget. Save your favourites.</p></div>
+        <div class="process-step"><div class="process-step__number">02</div><div class="process-step__icon"><i class="fas fa-calendar-check"></i></div><h3>Schedule Inspection</h3><p>Book a physical or virtual tour at your convenience with our agents.</p></div>
+        <div class="process-step"><div class="process-step__number">03</div><div class="process-step__icon"><i class="fas fa-file-contract"></i></div><h3>Legal Verification</h3><p>Our lawyers verify title documents and ensure clean ownership records.</p></div>
+        <div class="process-step"><div class="process-step__number">04</div><div class="process-step__icon"><i class="fas fa-handshake"></i></div><h3>Close & Move In</h3><p>Sign agreements, complete payment via escrow, collect your keys!</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS TEASER -->
+  <section class="section">
+    <div class="container">
+      <div class="section__header">
+        <span class="section__tag">Client Stories</span>
+        <h2 class="section__title">What Our <span class="highlight">Clients Say</span></h2>
+        <p class="section__subtitle">Real stories from real Nigerians who found their dream properties with us</p>
+      </div>
+      <div class="properties-grid properties-grid--3">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-card__text">"LandMark Realty made buying my first home in Lekki completely stress-free. From property tour to getting my C of O, everything was handled professionally!"</p>
+          <div class="testimonial-card__author"><div class="testimonial-avatar ta1"></div><div><strong>Adaeze Okonkwo</strong><span>Lagos – Bought 4-Bed Duplex</span></div></div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-card__text">"As a Nigerian in the UK, I was afraid of fraud back home. LandMark's diaspora desk gave me full confidence. They handled everything remotely!"</p>
+          <div class="testimonial-card__author"><div class="testimonial-avatar ta2"></div><div><strong>Babatunde Afolabi</strong><span>UK Diaspora – Bought Land, Abuja</span></div></div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-card__text">"Their property management service is excellent. They manage my 3 rental apartments, collect rents on time, and send detailed monthly reports."</p>
+          <div class="testimonial-card__author"><div class="testimonial-avatar ta3"></div><div><strong>Mrs. Ngozi Dike</strong><span>Port Harcourt – Management Client</span></div></div>
+        </div>
+      </div>
+      <div class="section__cta">
+        <a href="testimonials.html" class="btn btn--outline btn--lg">Read More Stories <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg"></div>
+    <div class="container cta-banner__content">
+      <div>
+        <h2>Have a Property to Sell or Rent?</h2>
+        <p>List with Nigeria's fastest-growing real estate platform and reach over 500,000 active buyers and renters every month.</p>
+      </div>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn--gold btn--lg">List Your Property</a>
+        <a href="tel:+2348000000000" class="btn btn--white-outline btn--lg"><i class="fas fa-phone"></i> Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="container footer__top-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav__logo"><span class="nav__logo-icon"><i class="fas fa-building"></i></span><span>LandMark<strong>Realty</strong></span></a>
+          <p>Nigeria's most trusted real estate company — connecting people with premium properties since 2009.</p>
+          <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li>
+            <li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Property Types</h4>
+          <ul>
+            <li><a href="properties.html">Houses for Sale</a></li><li><a href="properties.html">Houses for Rent</a></li>
+            <li><a href="properties.html">Short Let Apartments</a></li><li><a href="properties.html">Land for Sale</a></li>
+            <li><a href="properties.html">Commercial Properties</a></li><li><a href="properties.html">New Developments</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Top Locations</h4>
+          <ul>
+            <li><a href="properties.html">Lagos – Lekki</a></li><li><a href="properties.html">Lagos – Ikoyi</a></li>
+            <li><a href="properties.html">Lagos – Victoria Island</a></li><li><a href="properties.html">Abuja – Maitama</a></li>
+            <li><a href="properties.html">Abuja – Wuse 2</a></li><li><a href="properties.html">Port Harcourt – GRA</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Property Alerts</h4>
+          <p>Get notified when new properties matching your criteria are listed.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" class="btn btn--gold">Subscribe</button>
+          </form>
+          <div class="footer-certifications">
+            <span><i class="fas fa-shield-alt"></i> LASRERA Certified</span>
+            <span><i class="fas fa-award"></i> ARCON Member</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2025 LandMark Realty Nigeria Ltd. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a><a href="#">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2348000000000" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>Chat with us</span></a>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+  <script src="js/main.js"></script>
+</body>
+</html>

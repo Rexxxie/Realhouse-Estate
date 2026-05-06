@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – LandMark Realty Nigeria</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header header--solid" id="header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-icon"><i class="fas fa-building"></i></span>
+        <span>LandMark<strong>Realty</strong></span>
+      </a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="properties.html" class="nav__link">Properties</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="about.html" class="nav__link">About Us</a></li>
+        <li><a href="testimonials.html" class="nav__link">Testimonials</a></li>
+        <li><a href="contact.html" class="nav__link">Contact</a></li>
+        <li><a href="blog.html" class="nav__link active">Blog</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="tel:+2348000000000" class="nav__phone"><i class="fas fa-phone"></i> +234 800 000 0000</a>
+        <a href="contact.html" class="btn btn--primary btn--sm">List Property</a>
+        <button class="nav__toggle" id="navToggle"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="page-banner__bg pb-blog"></div>
+    <div class="page-banner__overlay"></div>
+    <div class="container page-banner__content">
+      <nav class="breadcrumb"><a href="index.html">Home</a><i class="fas fa-chevron-right"></i><span>Blog</span></nav>
+      <h1>Real Estate <span class="highlight">Insights</span></h1>
+      <p>Expert guides, market reports, and investment tips for the Nigerian property market</p>
+    </div>
+  </section>
+
+  <!-- BLOG CONTENT -->
+  <section class="section">
+    <div class="container">
+
+      <!-- FEATURED POST -->
+      <div class="blog-hero reveal">
+        <div class="blog-hero__thumb" style="background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&auto=format&fit=crop&q=80');">
+          <span class="blog-hero__badge">Featured</span>
+        </div>
+        <div class="blog-hero__body">
+          <span class="blog-hero__cat"><i class="fas fa-tag"></i> Market Report</span>
+          <h2>Lagos Real Estate Market Mid-2025: Prices, Hotspots & What to Expect</h2>
+          <div class="blog-hero__meta">
+            <span><i class="fas fa-user"></i> Adaora Emeka-Obi</span>
+            <span><i class="fas fa-calendar"></i> April 20, 2025</span>
+            <span><i class="fas fa-clock"></i> 8 min read</span>
+          </div>
+          <p>Lagos remains Africa's most dynamic real estate market. After a turbulent 2024 driven by naira volatility, Q1 2025 has shown strong signals of recovery — particularly in Lekki Phase 1, Ikoyi, and the emerging Ibeju-Lekki corridor. We break down the numbers every investor needs to know.</p>
+          <a href="#" class="btn btn--primary">Read Full Article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- CATEGORY PILLS -->
+      <div class="blog-cats">
+        <button class="blog-cat-pill active">All Articles</button>
+        <button class="blog-cat-pill">Market Reports</button>
+        <button class="blog-cat-pill">Investment Tips</button>
+        <button class="blog-cat-pill">Diaspora Guide</button>
+        <button class="blog-cat-pill">Legal & Documents</button>
+        <button class="blog-cat-pill">Property Management</button>
+        <button class="blog-cat-pill">First-Time Buyers</button>
+      </div>
+
+      <!-- BLOG LAYOUT: GRID + SIDEBAR -->
+      <div class="blog-layout">
+
+        <!-- MAIN GRID -->
+        <div class="blog-grid">
+
+          <!-- Article 1 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Investment Tips</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Amaka Eze</span>
+                <span><i class="fas fa-calendar"></i> Apr 15, 2025</span>
+                <span><i class="fas fa-clock"></i> 6 min</span>
+              </div>
+              <h3>Ibeju-Lekki: Why Savvy Investors Are Buying Land Now Before the Boom</h3>
+              <p>With the Dangote Refinery fully operational and the Lekki Deep Seaport handling cargo, the Ibeju-Lekki corridor is no longer a promise — it's a reality. Land prices have already risen 40% since 2023 and analysts project further 60–80% growth by 2027.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 2 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Diaspora Guide</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Chidi Okafor</span>
+                <span><i class="fas fa-calendar"></i> Apr 10, 2025</span>
+                <span><i class="fas fa-clock"></i> 9 min</span>
+              </div>
+              <h3>How Nigerians in the UK & US Can Safely Buy Property From Abroad in 2025</h3>
+              <p>Buying property in Nigeria while living abroad has never been easier — but it still comes with real risks. From escrow protection and remote inspections to trusted power of attorney, here is the complete diaspora buyer's playbook for 2025.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 3 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Legal & Documents</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Barrister Yemi Adeyemi</span>
+                <span><i class="fas fa-calendar"></i> Apr 5, 2025</span>
+                <span><i class="fas fa-clock"></i> 7 min</span>
+              </div>
+              <h3>Certificate of Occupancy (C of O) Explained: Your Complete Guide for 2025</h3>
+              <p>The Certificate of Occupancy remains the gold standard of property ownership proof in Nigeria. But what exactly is it, how long does it take to get one, and what happens if your property only has a Governor's Consent? We break it all down.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 4 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">First-Time Buyers</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Obinna Duru</span>
+                <span><i class="fas fa-calendar"></i> Mar 28, 2025</span>
+                <span><i class="fas fa-clock"></i> 10 min</span>
+              </div>
+              <h3>First Home in Lagos: A Step-by-Step Guide for Young Professionals in 2025</h3>
+              <p>From budgeting and mortgage pre-approval to title checks and moving in — buying your first home in Lagos is one of the most important financial decisions you'll ever make. Here's everything you need to know before signing anything.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 5 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Property Management</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Emeka Nwosu</span>
+                <span><i class="fas fa-calendar"></i> Mar 22, 2025</span>
+                <span><i class="fas fa-clock"></i> 5 min</span>
+              </div>
+              <h3>Short-Let Apartments in Abuja: Are They Still Worth the Investment in 2025?</h3>
+              <p>The short-let market in Abuja exploded post-COVID, but 2024 saw increased competition and tighter margins. We analyse occupancy rates, average daily rates, and the best areas to invest in furnished short-let apartments across the FCT.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 6 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Market Reports</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Adaora Emeka-Obi</span>
+                <span><i class="fas fa-calendar"></i> Mar 16, 2025</span>
+                <span><i class="fas fa-clock"></i> 7 min</span>
+              </div>
+              <h3>Abuja Commercial Real Estate 2025: Office Space Demand Is Back</h3>
+              <p>After two years of remote-work-driven vacancies, Abuja's Grade A office market is rebounding strongly. Government agencies, multinationals, and NGOs are snapping up prime space in Maitama and Central Business District. Here's what landlords and tenants need to know.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 7 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Legal & Documents</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Barrister Yemi Adeyemi</span>
+                <span><i class="fas fa-calendar"></i> Mar 9, 2025</span>
+                <span><i class="fas fa-clock"></i> 8 min</span>
+              </div>
+              <h3>5 Property Scams in Nigeria and How to Avoid Them in 2025</h3>
+              <p>Real estate fraud costs Nigerians billions of naira every year. Fake title documents, double sales, impersonation of landowners — the tactics are sophisticated and evolving. Our legal team reveals the most common scams and the exact steps to protect yourself.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 8 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1565402170291-8491f14678db?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">Investment Tips</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Amaka Eze</span>
+                <span><i class="fas fa-calendar"></i> Feb 28, 2025</span>
+                <span><i class="fas fa-clock"></i> 6 min</span>
+              </div>
+              <h3>Off-Plan vs. Ready Property: Which Gives Better Returns in Nigeria?</h3>
+              <p>Off-plan developments offer attractive pre-launch prices, but ready properties remove construction risk. For Nigerian investors in 2025, the answer depends heavily on the developer, location, and your investment horizon. We compare both strategies head-to-head.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Article 9 -->
+          <div class="blog-card reveal">
+            <div class="blog-card__thumb" style="background-image: url('https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=800&auto=format&fit=crop&q=80');">
+              <span class="blog-card__category">First-Time Buyers</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i class="fas fa-user"></i> Chidi Okafor</span>
+                <span><i class="fas fa-calendar"></i> Feb 20, 2025</span>
+                <span><i class="fas fa-clock"></i> 5 min</span>
+              </div>
+              <h3>NHF & Mortgage: How to Use Nigeria's National Housing Fund to Buy Your Home</h3>
+              <p>Millions of Nigerians are enrolled in the National Housing Fund but have never used it. With Federal Mortgage Bank rates currently capped at 6%, NHF mortgages are the cheapest home loans available in Nigeria. Here's how to access yours.</p>
+              <a href="#" class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+        </div><!-- /.blog-grid -->
+
+        <!-- SIDEBAR -->
+        <aside class="blog-sidebar">
+
+          <!-- Search -->
+          <div class="sidebar-widget">
+            <h4>Search Articles</h4>
+            <div class="search-input-wrap" style="position:relative;">
+              <input type="text" placeholder="Search blog..." style="width:100%;padding:10px 42px 10px 16px;border:1.5px solid var(--gray-200);border-radius:var(--radius-md);font-size:0.875rem;outline:none;" />
+              <i class="fas fa-search" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--gray-400);"></i>
+            </div>
+          </div>
+
+          <!-- Recent Posts -->
+          <div class="sidebar-widget">
+            <h4>Recent Posts</h4>
+
+            <div class="recent-post">
+              <div class="recent-post__thumb" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&auto=format&fit=crop&q=80');"></div>
+              <div class="recent-post__info">
+                <h5>Lagos Real Estate Market Mid-2025 Report</h5>
+                <span><i class="fas fa-calendar"></i> Apr 20, 2025</span>
+              </div>
+            </div>
+
+            <div class="recent-post">
+              <div class="recent-post__thumb" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&auto=format&fit=crop&q=80');"></div>
+              <div class="recent-post__info">
+                <h5>Ibeju-Lekki: Why Investors Are Buying Land Now</h5>
+                <span><i class="fas fa-calendar"></i> Apr 15, 2025</span>
+              </div>
+            </div>
+
+            <div class="recent-post">
+              <div class="recent-post__thumb" style="background-image:url('https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=200&auto=format&fit=crop&q=80');"></div>
+              <div class="recent-post__info">
+                <h5>How Diaspora Nigerians Can Buy Property Safely</h5>
+                <span><i class="fas fa-calendar"></i> Apr 10, 2025</span>
+              </div>
+            </div>
+
+            <div class="recent-post">
+              <div class="recent-post__thumb" style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&auto=format&fit=crop&q=80');"></div>
+              <div class="recent-post__info">
+                <h5>Certificate of Occupancy: Complete Guide 2025</h5>
+                <span><i class="fas fa-calendar"></i> Apr 5, 2025</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-widget">
+            <h4>Categories</h4>
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--gray-600);padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+                <a href="#" style="color:inherit;display:flex;align-items:center;gap:8px;"><i class="fas fa-chart-bar" style="color:var(--gold);width:14px;"></i> Market Reports</a>
+                <span style="background:var(--gray-100);border-radius:99px;padding:2px 10px;font-size:0.72rem;font-weight:600;">12</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--gray-600);padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+                <a href="#" style="color:inherit;display:flex;align-items:center;gap:8px;"><i class="fas fa-piggy-bank" style="color:var(--gold);width:14px;"></i> Investment Tips</a>
+                <span style="background:var(--gray-100);border-radius:99px;padding:2px 10px;font-size:0.72rem;font-weight:600;">18</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--gray-600);padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+                <a href="#" style="color:inherit;display:flex;align-items:center;gap:8px;"><i class="fas fa-globe-africa" style="color:var(--gold);width:14px;"></i> Diaspora Guide</a>
+                <span style="background:var(--gray-100);border-radius:99px;padding:2px 10px;font-size:0.72rem;font-weight:600;">9</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--gray-600);padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+                <a href="#" style="color:inherit;display:flex;align-items:center;gap:8px;"><i class="fas fa-balance-scale" style="color:var(--gold);width:14px;"></i> Legal & Documents</a>
+                <span style="background:var(--gray-100);border-radius:99px;padding:2px 10px;font-size:0.72rem;font-weight:600;">14</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--gray-600);padding-bottom:10px;border-bottom:1px solid var(--gray-100);">
+                <a href="#" style="color:inherit;display:flex;align-items:center;gap:8px;"><i class="fas fa-tools" style="color:var(--gold);width:14px;"></i> Property Management</a>
+                <span style="background:var(--gray-100);border-radius:99px;padding:2px 10px;font-size:0.72rem;font-weight:600;">7</span>
+              </li>
+              <li style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:var(--gray-600);">
+                <a href="#" style="color:inherit;display:flex;align-items:center;gap:8px;"><i class="fas fa-home" style="color:var(--gold);width:14px;"></i> First-Time Buyers</a>
+                <span style="background:var(--gray-100);border-radius:99px;padding:2px 10px;font-size:0.72rem;font-weight:600;">11</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tags -->
+          <div class="sidebar-widget">
+            <h4>Popular Tags</h4>
+            <div class="tag-cloud">
+              <span class="tag">Lagos</span>
+              <span class="tag">Abuja</span>
+              <span class="tag">Lekki</span>
+              <span class="tag">Ibeju-Lekki</span>
+              <span class="tag">C of O</span>
+              <span class="tag">Diaspora</span>
+              <span class="tag">Off-plan</span>
+              <span class="tag">Short-let</span>
+              <span class="tag">Mortgage</span>
+              <span class="tag">NHF</span>
+              <span class="tag">Land</span>
+              <span class="tag">FCT</span>
+              <span class="tag">ROI</span>
+              <span class="tag">Port Harcourt</span>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="sidebar-widget sidebar-newsletter">
+            <h4>Weekly Property Digest</h4>
+            <p>Get the latest Nigerian real estate news, market reports, and investment tips delivered to your inbox every Monday.</p>
+            <form class="newsletter-form" id="sidebarNewsletter" style="flex-direction:column;gap:10px;">
+              <input type="email" placeholder="Your email address" required style="width:100%;" />
+              <button type="submit" class="btn btn--gold" style="width:100%;justify-content:center;">Subscribe Free</button>
+            </form>
+            <p style="font-size:0.72rem;color:var(--gray-400);margin-top:10px;margin-bottom:0;"><i class="fas fa-lock"></i> No spam. Unsubscribe anytime.</p>
+          </div>
+
+        </aside>
+      </div><!-- /.blog-layout -->
+
+      <!-- LOAD MORE -->
+      <div style="text-align:center;margin-top:48px;">
+        <button class="btn btn--outline btn--lg"><i class="fas fa-plus"></i> Load More Articles</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg"></div>
+    <div class="container cta-banner__content">
+      <div><h2>Ready to Make a Move?</h2><p>Speak with a LandMark Realty expert today — free consultation, no obligation.</p></div>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn--gold btn--lg">Free Consultation</a>
+        <a href="properties.html" class="btn btn--white-outline btn--lg"><i class="fas fa-search"></i> Browse Properties</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top"><div class="container footer__top-grid">
+      <div class="footer-brand"><a href="index.html" class="nav__logo"><span class="nav__logo-icon"><i class="fas fa-building"></i></span><span>LandMark<strong>Realty</strong></span></a><p>Nigeria's most trusted real estate company — connecting people with premium properties since 2009.</p><div class="footer-socials"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-whatsapp"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="footer-links"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="properties.html">Properties</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About Us</a></li><li><a href="testimonials.html">Testimonials</a></li><li><a href="contact.html">Contact</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="footer-links"><h4>Our Services</h4><ul><li><a href="services.html">Property Sales</a></li><li><a href="services.html">Property Rentals</a></li><li><a href="services.html">Property Investment</a></li><li><a href="services.html">Property Development</a></li><li><a href="services.html">Property Management</a></li><li><a href="services.html">Legal & Documentation</a></li></ul></div>
+      <div class="footer-links"><h4>Top Locations</h4><ul><li><a href="properties.html">Lagos – Lekki</a></li><li><a href="properties.html">Lagos – Ikoyi</a></li><li><a href="properties.html">Abuja – Maitama</a></li><li><a href="properties.html">Abuja – Wuse 2</a></li><li><a href="properties.html">Port Harcourt – GRA</a></li><li><a href="properties.html">Enugu – Independence</a></li></ul></div>
+      <div class="footer-newsletter"><h4>Property Alerts</h4><p>Get notified when new properties matching your criteria are listed.</p><form class="newsletter-form" id="newsletterForm"><input type="email" placeholder="Enter your email" required /><button type="submit" class="btn btn--gold">Subscribe</button></form><div class="footer-certifications"><span><i class="fas fa-shield-alt"></i> LASRERA Certified</span><span><i class="fas fa-award"></i> ARCON Member</span></div></div>
+    </div></div>
+    <div class="footer__bottom"><div class="container footer__bottom-inner"><p>&copy; 2025 LandMark Realty Nigeria Ltd. All rights reserved.</p><div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Policy</a></div></div></div>
+  </footer>
+
+  <a href="https://wa.me/2348000000000" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>Chat with us</span></a>
+  <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+  <script src="js/main.js"></script>
+  <script>
+    // Blog category pill filter
+    document.querySelectorAll('.blog-cat-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.blog-cat-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
