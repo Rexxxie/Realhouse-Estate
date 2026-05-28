@@ -3498,19 +3498,23 @@ ul { list-style: none; }
   color: var(--navy-900);
   overflow-y: auto;
   opacity: 0;
-  transform: scale(0.95) translateY(20px);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.96);
+  margin: 0;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), display 0.35s allow-discrete;
 }
 
 .property-details-dialog[open] {
   opacity: 1;
-  transform: scale(1) translateY(0);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 @starting-style {
   .property-details-dialog[open] {
     opacity: 0;
-    transform: scale(0.95) translateY(20px);
+    transform: translate(-50%, -48%) scale(0.96);
   }
 }
 
