@@ -161,7 +161,7 @@ All photography sourced from [Unsplash](https://unsplash.com) under the free Uns
 - Founded: London, 2009
 - Offices: London · Edinburgh · Manchester
 - Certifications: RICS · NAEA Propertymark · ISO 9001:2015
-- Phone: +44 20 7946 0192
+- Phone: +44 7796 370134
 
 ---
 
