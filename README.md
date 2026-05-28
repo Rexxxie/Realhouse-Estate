@@ -1,6 +1,6 @@
-# LandMark Realty Nigeria — Official Website
+# Realhouse Estate — Official Website
 
-A modern, mobile-responsive real estate website built for **LandMark Realty Nigeria**, a full-service property company with offices in Lagos, Abuja, and Port Harcourt. Built entirely with pure HTML, CSS, and vanilla JavaScript — no frameworks required.
+A modern, premium, mobile-responsive real estate website built for **Realhouse Estate**, a full-service property consultancy with offices in London, Edinburgh, and Manchester. Built entirely with pure HTML, CSS, and vanilla JavaScript — no frameworks required.
 
 ---
 
@@ -38,12 +38,12 @@ A modern, mobile-responsive real estate website built for **LandMark Realty Nige
 - **Grid / List view toggle** — switch property listings between layouts
 - **FAQ accordion** — smooth open/close with CSS max-height transitions
 - **Sticky header** — transparent on home, becomes white on scroll; solid on inner pages
-- **Real city photography** — Unsplash photos for Lagos, Abuja, Port Harcourt, Ibadan, Enugu
+- **Real city photography** — premium Unsplash photos for London, Edinburgh, Manchester, Birmingham, Bristol
 - **Blog with sidebar** — featured post, category pills, tag cloud, recent posts widget
 - **WhatsApp float button** — quick contact accessible on every page
 - **Back-to-top button** — appears after scrolling down
 - **Newsletter form** — in footer and blog sidebar
-- **LASRERA & ARCON branding** — certification badges in footer
+- **RICS & NAEA Propertymark branding** — accreditation badges in footer
 
 ---
 
@@ -58,37 +58,6 @@ A modern, mobile-responsive real estate website built for **LandMark Realty Nige
 | Fonts | Google Fonts — Playfair Display + Inter |
 | Images | Unsplash (free, no attribution required) |
 | Dev Server | Python 3 (`http.server`) |
-
----
-
-## Project Structure
-
-```
-Real house Estate/
-├── index.html              # Home page
-├── properties.html         # Properties listing page
-├── services.html           # Services page
-├── about.html              # About Us page
-├── testimonials.html       # Testimonials page
-├── contact.html            # Contact page
-├── blog.html               # Blog / news page
-│
-├── css/
-│   └── style.css           # All styles (~3,200+ lines)
-│
-├── js/
-│   └── main.js             # All interactivity
-│
-├── images/
-│   ├── city-lagos.jpg      # Lagos – Victoria Island aerial (Unsplash)
-│   ├── city-abuja.jpg      # Abuja – National Mosque (Unsplash)
-│   ├── city-portharcourt.jpg  # Port Harcourt aerial (Unsplash)
-│   ├── city-ibadan.jpg     # Ibadan cityscape (Unsplash)
-│   └── city-enugu.jpg      # Enugu city view (Unsplash)
-│
-└── .claude/
-    └── launch.json         # Dev server config for Claude Code
-```
 
 ---
 
@@ -158,7 +127,6 @@ Responsive             → Breakpoints at 1024px, 768px, 600px
 
 **Option 1 – Python (recommended)**
 ```bash
-cd "Real house Estate"
 python3 -m http.server 3000
 # Open http://localhost:3000
 ```
@@ -179,21 +147,21 @@ All photography sourced from [Unsplash](https://unsplash.com) under the free Uns
 
 | City | Unsplash Photo ID |
 |------|------------------|
-| Lagos | `1618828665011-0abd973f7bb8` |
-| Abuja | `1609657726788-44564a8f304a` |
-| Port Harcourt | `1580239808463-daf9766788a7` |
-| Ibadan | `1685266326184-0b570fe834fa` |
-| Enugu | `1577900190299-7316c32fe85f` |
+| London | `1513635269975-59663e0ac1ad` |
+| Edinburgh | `1506377247377-2a5b3b417ebb` |
+| Manchester | `1515586838455-8f8f940d6853` |
+| Birmingham | `1601042879364-f3947d3f9c16` |
+| Bristol | `1569336415962-a4bd9f69cd83` |
 
 ---
 
 ## Brand Information
 
-**LandMark Realty Nigeria Ltd**
-- Founded: Lagos, 2009
-- Offices: Lagos · Abuja · Port Harcourt
-- Certifications: LASRERA · ARCON · ISO 9001:2015
-- Phone: +234 800 000 0000
+**Realhouse Estate Ltd**
+- Founded: London, 2009
+- Offices: London · Edinburgh · Manchester
+- Certifications: RICS · NAEA Propertymark · ISO 9001:2015
+- Phone: +44 20 7946 0192
 
 ---
 
@@ -208,4 +176,4 @@ All photography sourced from [Unsplash](https://unsplash.com) under the free Uns
 
 ---
 
-*Built with ❤️ for LandMark Realty Nigeria · © 2025 All rights reserved*
+*Built with ❤️ for Realhouse Estate · © 2025 All rights reserved*

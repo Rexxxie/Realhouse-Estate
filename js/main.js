@@ -1,5 +1,5 @@
 /* ============================================================
-   LandMark Realty – main.js
+   Realhouse Estate – main.js
 ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
