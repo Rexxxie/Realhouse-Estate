@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: "This ultra-luxury Georgian-style brick mansion situated in the heart of Mayfair represents the absolute pinnacle of luxury living in central London. Offering highly sophisticated classical interior design, high ceilings, underfloor heating, a private lift, and a landscaped private garden, this home has been completely refurbished to pristine architectural specifications.",
       amenities: ["Underfloor Heating", "Landscaped Garden", "Private Elevator", "24/7 Security", "Wine Cellar", "Smart Home Automation"],
       agent: {
-        name: "Charles Davies",
+        name: "Christopher Olajide",
         avatar: "agent-avatar av1"
       }
     },
@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: "A phenomenal opportunity to acquire a prime residential plot consisting of 2 premium land plots in beautiful, historic Windsor. Boasting direct highway road access, secure perimeter fencing, and full planning permission for two custom luxury detaches houses, this freehold land represents a rare investment opportunity.",
       amenities: ["Freehold Tenure", "Full Planning Permission", "Direct Road Access", "Water & Electricity Ready", "Secure Perimeter Fencing", "Near Windsor Great Park"],
       agent: {
-        name: "Charles Davies",
+        name: "Christopher Olajide",
         avatar: "agent-avatar av1"
       }
     },
@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desc: "An absolutely stunning and highly exclusive mid-century modern detached bungalow situated in prestigious Wilmslow, Cheshire. Offering a magnificent layout with glass walls framing a beautifully manicured landscaped garden, double garaging, and top-tier luxury finishing throughout.",
       amenities: ["Mid-Century Modern Architecture", "Glass Walls", "Landscaped Rear Garden", "Double Garaging", "Underfloor Heating", "Premium Cheshire Location"],
       agent: {
-        name: "Charles Davies",
+        name: "Christopher Olajide",
         avatar: "agent-avatar av1"
       }
     }
