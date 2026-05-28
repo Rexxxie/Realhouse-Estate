@@ -334,6 +334,62 @@
 
   <a href="https://wa.me/447796370134" class="whatsapp-float" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i><span>Chat with us</span></a>
   <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+  <!-- PROPERTY DETAILS DIALOG MODAL -->
+  <dialog id="propertyDetailsDialog" class="property-details-dialog" aria-labelledby="modalPropertyTitle" closedby="any">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="closePropertyDialogBtn" aria-label="Close details">&times;</button>
+      <div class="modal-grid">
+        <!-- Media Section -->
+        <div class="modal-media">
+          <img id="modalPropertyImg" src="" alt="Property View">
+          <div class="modal-badges" id="modalPropertyBadges"></div>
+        </div>
+        <!-- Details Section -->
+        <div class="modal-details">
+          <div class="modal-header">
+            <span class="modal-tag" id="modalPropertyLocationTag">Location</span>
+            <h2 id="modalPropertyTitle">Property Title</h2>
+            <div class="modal-price" id="modalPropertyPrice">£0</div>
+          </div>
+          <div class="modal-specs">
+            <div class="spec-item"><i class="fas fa-bed"></i> <span id="modalPropertyBeds">0 Beds</span></div>
+            <div class="spec-item"><i class="fas fa-bath"></i> <span id="modalPropertyBaths">0 Baths</span></div>
+            <div class="spec-item"><i class="fas fa-ruler-combined"></i> <span id="modalPropertyArea">0 sqm</span></div>
+          </div>
+          <div class="modal-description-section">
+            <h3>Property Overview</h3>
+            <p id="modalPropertyDesc">Description</p>
+          </div>
+          <div class="modal-amenities-section">
+            <h3>Key Features</h3>
+            <ul class="modal-amenities-list" id="modalPropertyAmenities">
+              <!-- Dynamically populated amenities -->
+            </ul>
+          </div>
+          <!-- Agent Section -->
+          <div class="modal-agent-section">
+            <div class="modal-agent-card">
+              <div class="agent-avatar" id="modalPropertyAgentAvatar"></div>
+              <div class="agent-info">
+                <span class="agent-title">Listing Broker</span>
+                <h4 id="modalPropertyAgentName">Agent Name</h4>
+                <p><i class="fas fa-phone-alt"></i> +447796370134</p>
+              </div>
+            </div>
+            <div class="modal-action-buttons">
+              <a href="https://wa.me/447796370134" id="modalPropertyWhatsappCta" class="btn btn--gold btn--full" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> WhatsApp Broker
+              </a>
+              <a href="mailto:info@rexleyadio.com" id="modalPropertyEmailCta" class="btn btn--outline btn--full">
+                <i class="far fa-envelope"></i> Email Enquiry
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
   <script src="js/main.js"></script>
 </body>
 </html>

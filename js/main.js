@@ -492,4 +492,234 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ----------------------------------------------------------
+     PROPERTY DETAILS MODAL SYSTEM (Progressive Enhancement)
+     ---------------------------------------------------------- */
+  const propertiesData = {
+    "Luxury 5-Bedroom Mansion": {
+      location: "Mayfair, London",
+      price: "£2,500,000",
+      beds: "5 Beds",
+      baths: "6 Baths",
+      area: "1,200 sqm",
+      image: "images/prop-mayfair-mansion.jpg",
+      badges: ["<span class='badge badge--sale'>For Sale</span>", "<span class='badge badge--featured'>Featured</span>"],
+      desc: "This ultra-luxury Georgian-style brick mansion situated in the heart of Mayfair represents the absolute pinnacle of luxury living in central London. Offering highly sophisticated classical interior design, high ceilings, underfloor heating, a private lift, and a landscaped private garden, this home has been completely refurbished to pristine architectural specifications.",
+      amenities: ["Underfloor Heating", "Landscaped Garden", "Private Elevator", "24/7 Security", "Wine Cellar", "Smart Home Automation"],
+      agent: {
+        name: "Charles Davies",
+        avatar: "agent-avatar av1"
+      }
+    },
+    "4-Bed Semi-Detached Duplex": {
+      location: "Richmond, London",
+      price: "£7,000 <span>/mo</span>",
+      beds: "4 Beds",
+      baths: "4 Baths",
+      area: "450 sqm",
+      image: "images/prop-richmond-duplex.jpg",
+      badges: ["<span class='badge badge--rent'>For Rent</span>"],
+      desc: "An absolutely stunning Victorian semi-detached home nestled in one of Richmond's most tranquil residential streets. Designed over three floors, it boasts an elegant double reception room with high-end fireplaces, a grand open-plan kitchen/diner leading to a manicured garden, and close proximity to Richmond Park and top-performing schools.",
+      amenities: ["Manicured Garden", "Victorian Fireplace", "Open-plan Kitchen", "Walk-in Wardrobe", "Allocated Parking", "Excellent Transport Links"],
+      agent: {
+        name: "Sarah Jenkins",
+        avatar: "agent-avatar av2"
+      }
+    },
+    "5-Bed Detached Duplex": {
+      location: "New Town, Edinburgh",
+      price: "£1,500,000",
+      beds: "5 Beds",
+      baths: "5 Baths",
+      area: "800 sqm",
+      image: "images/prop-edinburgh-duplex.jpg",
+      badges: ["<span class='badge badge--sale'>For Sale</span>", "<span class='badge badge--new'>New</span>"],
+      desc: "A breathtaking and highly prestigious classical gray sandstone townhouse in Edinburgh's historic New Town. Overlooking beautiful private gardens, the property blends spectacular architectural period details (including ornate plasterwork, sash windows, and working shutters) with a luxurious modern layout.",
+      amenities: ["Classical Sandstone", "Ornate Plasterwork", "Garden Views", "Double Garage", "High-speed Fiber", "Basement Suite"],
+      agent: {
+        name: "Edward Sterling",
+        avatar: "agent-avatar av3"
+      }
+    },
+    "Luxury 3-Bed Penthouse": {
+      location: "Canary Wharf, London",
+      price: "£350 <span>/night</span>",
+      beds: "3 Beds",
+      baths: "3 Baths",
+      area: "380 sqm",
+      image: "images/prop-canary-penthouse.jpg",
+      badges: ["<span class='badge badge--shortlet'>Short Let</span>", "<span class='badge badge--featured'>Featured</span>"],
+      desc: "Experience spectacular dockside living from this ultra-modern high-rise glass penthouse. Situated on the top floor of a prestigious Canary Wharf tower, it offers breathtaking floor-to-ceiling panoramic views over London's skyline and the River Thames, complete with a wrapped glass terrace and private concierge services.",
+      amenities: ["Panoramic Skyline Views", "Wrapped Glass Terrace", "24/7 Concierge", "Integrated Miele Appliances", "Private Gym & Spa Access", "Air Conditioning"],
+      agent: {
+        name: "Fiona Adler",
+        avatar: "agent-avatar av4"
+      }
+    },
+    "Residential Land – 2 Plots": {
+      location: "Windsor, Berkshire",
+      price: "£750,000",
+      beds: "1,200 sqm",
+      baths: "Freehold",
+      area: "Road Access",
+      image: "images/prop-windsor-land.jpg",
+      badges: ["<span class='badge badge--land'>Land</span>"],
+      desc: "A phenomenal opportunity to acquire a prime residential plot consisting of 2 premium land plots in beautiful, historic Windsor. Boasting direct highway road access, secure perimeter fencing, and full planning permission for two custom luxury detaches houses, this freehold land represents a rare investment opportunity.",
+      amenities: ["Freehold Tenure", "Full Planning Permission", "Direct Road Access", "Water & Electricity Ready", "Secure Perimeter Fencing", "Near Windsor Great Park"],
+      agent: {
+        name: "Charles Davies",
+        avatar: "agent-avatar av1"
+      }
+    },
+    "3-Bed Terrace House": {
+      location: "Richmond, London",
+      price: "£450,000",
+      beds: "3 Beds",
+      baths: "3 Baths",
+      area: "220 sqm",
+      image: "images/prop-richmond-terrace.jpg",
+      badges: ["<span class='badge badge--sale'>For Sale</span>", "<span class='badge badge--new'>New Dev</span>"],
+      desc: "A highly charming and beautifully presented traditional brick terraced townhouse in highly popular Richmond. Providing stylish light-filled interiors, this property offers three double bedrooms, a delightful fitted kitchen, and a private rear patio. Ideal for young professionals and growing families.",
+      amenities: ["Traditional Brick Facade", "Private Rear Patio", "Modern Fitted Kitchen", "Sash Windows", "Close to High Street", "Attic Storage Space"],
+      agent: {
+        name: "Sarah Jenkins",
+        avatar: "agent-avatar av2"
+      }
+    },
+    "Modern 2-Bed Apartment": {
+      location: "West End, Edinburgh",
+      price: "£2,500 <span>/mo</span>",
+      beds: "2 Beds",
+      baths: "2 Baths",
+      area: "140 sqm",
+      image: "images/prop-edinburgh-apartment.jpg",
+      badges: ["<span class='badge badge--rent'>For Rent</span>"],
+      desc: "A highly sophisticated modern 2-bedroom luxury apartment located in Edinburgh's exclusive West End. Featuring clean contemporary lines, double glazing, premium engineered oak flooring, designer bathroom suites, and built-in wardrobes, this ready-to-move-in home defines high-quality urban living.",
+      amenities: ["Oak Hardwood Floors", "Double Glazing", "Designer Bathrooms", "Built-in Wardrobes", "Private Resident Parking", "Secure Intercom System"],
+      agent: {
+        name: "Edward Sterling",
+        avatar: "agent-avatar av3"
+      }
+    },
+    "5-Floor Office Complex": {
+      location: "City of London",
+      price: "£1,800,000",
+      beds: "5 Floors",
+      baths: "40 Parking",
+      area: "3,200 sqm",
+      image: "images/prop-london-office.jpg",
+      badges: ["<span class='badge badge--sale'>Commercial</span>"],
+      desc: "A premier commercial glass office complex strategically positioned in the high-stakes City of London financial district. Offering 5 floors of high-performance flexible workspace, high-speed lift access, robust central climate control, and a subterranean car park with 40 allocated spaces.",
+      amenities: ["Financial District Location", "Flexible Layout Floors", "High-speed Passenger Lifts", "Underground Parking (40 bays)", "Central Climate Control", "Executive Boardrooms"],
+      agent: {
+        name: "Edward Sterling",
+        avatar: "agent-avatar av3"
+      }
+    },
+    "4-Bed Detached Bungalow": {
+      location: "Wilmslow, Cheshire",
+      price: "£950,000",
+      beds: "4 Beds",
+      baths: "4 Baths",
+      area: "600 sqm",
+      image: "images/prop-wilmslow-bungalow.jpg",
+      badges: ["<span class='badge badge--sale'>For Sale</span>"],
+      desc: "An absolutely stunning and highly exclusive mid-century modern detached bungalow situated in prestigious Wilmslow, Cheshire. Offering a magnificent layout with glass walls framing a beautifully manicured landscaped garden, double garaging, and top-tier luxury finishing throughout.",
+      amenities: ["Mid-Century Modern Architecture", "Glass Walls", "Landscaped Rear Garden", "Double Garaging", "Underfloor Heating", "Premium Cheshire Location"],
+      agent: {
+        name: "Charles Davies",
+        avatar: "agent-avatar av1"
+      }
+    }
+  };
+
+  const detailsDialog = document.getElementById('propertyDetailsDialog');
+  const closeDetailsBtn = document.getElementById('closePropertyDialogBtn');
+
+  if (detailsDialog && closeDetailsBtn) {
+    // Open Dialog Function
+    const openPropertyModal = (card) => {
+      const titleEl = card.querySelector('.property-card__title');
+      if (!titleEl) return;
+      const title = titleEl.textContent.trim();
+      const data = propertiesData[title];
+      if (!data) return;
+
+      // Populate Elements
+      document.getElementById('modalPropertyImg').src = data.image;
+      document.getElementById('modalPropertyImg').alt = title;
+      document.getElementById('modalPropertyTitle').textContent = title;
+      document.getElementById('modalPropertyPrice').innerHTML = data.price;
+      document.getElementById('modalPropertyLocationTag').textContent = data.location;
+      document.getElementById('modalPropertyBeds').textContent = data.beds;
+      document.getElementById('modalPropertyBaths').textContent = data.baths;
+      document.getElementById('modalPropertyArea').textContent = data.area;
+      document.getElementById('modalPropertyDesc').textContent = data.desc;
+
+      // Populate Badges
+      const badgesContainer = document.getElementById('modalPropertyBadges');
+      badgesContainer.innerHTML = data.badges.join('');
+
+      // Populate Amenities
+      const amenitiesContainer = document.getElementById('modalPropertyAmenities');
+      amenitiesContainer.innerHTML = data.amenities.map(amenity => `<li>${amenity}</li>`).join('');
+
+      // Populate Agent details
+      document.getElementById('modalPropertyAgentName').textContent = data.agent.name;
+      const avatarEl = document.getElementById('modalPropertyAgentAvatar');
+      avatarEl.className = data.agent.avatar;
+
+      // WhatsApp Dynamic Link Setup
+      const whatsappText = `Hi, I am interested in the ${title} in ${data.location}. Could you please send me more details?`;
+      document.getElementById('modalPropertyWhatsappCta').href = `https://wa.me/447796370134?text=${encodeURIComponent(whatsappText)}`;
+
+      // Email Dynamic Link Setup
+      const emailSubject = `Enquiry: ${title}`;
+      const emailBody = `Hi,\n\nI am highly interested in the ${title} in ${data.location}.\nCould you please provide more details and schedule a virtual structural survey or viewing for this listing?\n\nKind regards,\n[Your Name]`;
+      document.getElementById('modalPropertyEmailCta').href = `mailto:info@rexleyadio.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+      // Open Modal
+      detailsDialog.showModal();
+      document.body.style.overflow = 'hidden'; // Trap body scroll
+    };
+
+    // Close Dialog Function
+    const closePropertyModal = () => {
+      detailsDialog.close();
+    };
+
+    // Handle close dialog event
+    closeDetailsBtn.addEventListener('click', closePropertyModal);
+    detailsDialog.addEventListener('close', () => {
+      document.body.style.overflow = ''; // Release body scroll
+    });
+
+    // Fallback for click outside modal to dismiss (light-dismiss backdrop click)
+    detailsDialog.addEventListener('click', (event) => {
+      if (event.target !== detailsDialog) return;
+      const rect = detailsDialog.getBoundingClientRect();
+      const isDialogContent = (
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width
+      );
+      if (!isDialogContent) {
+        closePropertyModal();
+      }
+    });
+
+    // Intercept Details Click Events (Progressive Enhancement)
+    document.addEventListener('click', (event) => {
+      const detailsCta = event.target.closest('.property-card__cta, .property-card__overlay .btn');
+      if (!detailsCta) return;
+
+      const card = detailsCta.closest('.property-card');
+      if (card) {
+        event.preventDefault();
+        openPropertyModal(card);
+      }
+    });
+  }
+
 });
