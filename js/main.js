@@ -299,7 +299,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  // Observe all reveal elements (both programmatically added and hardcoded in HTML)
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   /* ----------------------------------------------------------
      ABOUT SECTION REVEAL
