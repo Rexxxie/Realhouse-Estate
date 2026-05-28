@@ -154,10 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ----------------------------------------------------------
      SEARCH TABS & FIELD UX ENHANCEMENT
-     (Hides Bedrooms select field when searching for Land or Commercial)
+     (Hides Bedrooms & Property Type select fields and shows Land Measurement for Land category)
      ---------------------------------------------------------- */
   const searchTabs = document.querySelectorAll('.search-tab');
   const bedroomsField = document.getElementById('searchBedroomsField');
+  const typeField = document.getElementById('searchTypeField');
+  const measurementField = document.getElementById('searchMeasurementField');
   const allSelects = document.querySelectorAll('.search-box__form select');
   
   // Find the Property Type select dropdown dynamically
@@ -165,13 +167,24 @@ document.addEventListener('DOMContentLoaded', () => {
     return select.options[0] && select.options[0].textContent.includes('Property Type');
   });
 
-  const updateBedroomsVisibility = (category) => {
-    if (!bedroomsField) return;
+  const updateSearchFields = (category) => {
     const cleanCategory = (category || '').toLowerCase().trim();
-    if (cleanCategory === 'land' || cleanCategory === 'commercial') {
-      bedroomsField.style.display = 'none';
+    
+    if (cleanCategory === 'land') {
+      // Land Mode: Hide Bedrooms, Hide Property Type, Show Land Measurement
+      if (bedroomsField) bedroomsField.style.display = 'none';
+      if (typeField) typeField.style.display = 'none';
+      if (measurementField) measurementField.style.display = '';
+    } else if (cleanCategory === 'commercial') {
+      // Commercial Mode: Hide Bedrooms, Show Property Type, Hide Land Measurement
+      if (bedroomsField) bedroomsField.style.display = 'none';
+      if (typeField) typeField.style.display = '';
+      if (measurementField) measurementField.style.display = 'none';
     } else {
-      bedroomsField.style.display = '';
+      // Residential Modes (Buy, Rent, Shortlet): Show Bedrooms, Show Property Type, Hide Land Measurement
+      if (bedroomsField) bedroomsField.style.display = '';
+      if (typeField) typeField.style.display = '';
+      if (measurementField) measurementField.style.display = 'none';
     }
   };
 
@@ -181,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tab.classList.add('active');
       
       const tabName = tab.getAttribute('data-tab');
-      updateBedroomsVisibility(tabName);
+      updateSearchFields(tabName);
       
       // Auto-set the property type dropdown if it exists to match tab category
       if (typeSelect) {
@@ -198,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (typeSelect) {
     typeSelect.addEventListener('change', (e) => {
-      updateBedroomsVisibility(e.target.value);
+      updateSearchFields(e.target.value);
     });
   }
 
