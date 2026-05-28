@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.3 });
 
+  const heroSection = document.getElementById('home');
   if (heroSection) heroObserver.observe(heroSection);
 
   /* ----------------------------------------------------------
