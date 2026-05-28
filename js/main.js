@@ -153,16 +153,54 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroSection) heroObserver.observe(heroSection);
 
   /* ----------------------------------------------------------
-     SEARCH TABS
-  ---------------------------------------------------------- */
+     SEARCH TABS & FIELD UX ENHANCEMENT
+     (Hides Bedrooms select field when searching for Land or Commercial)
+     ---------------------------------------------------------- */
   const searchTabs = document.querySelectorAll('.search-tab');
+  const bedroomsField = document.getElementById('searchBedroomsField');
+  const allSelects = document.querySelectorAll('.search-box__form select');
+  
+  // Find the Property Type select dropdown dynamically
+  const typeSelect = Array.from(allSelects).find(select => {
+    return select.options[0] && select.options[0].textContent.includes('Property Type');
+  });
+
+  const updateBedroomsVisibility = (category) => {
+    if (!bedroomsField) return;
+    const cleanCategory = (category || '').toLowerCase().trim();
+    if (cleanCategory === 'land' || cleanCategory === 'commercial') {
+      bedroomsField.style.display = 'none';
+    } else {
+      bedroomsField.style.display = '';
+    }
+  };
 
   searchTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       searchTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
+      
+      const tabName = tab.getAttribute('data-tab');
+      updateBedroomsVisibility(tabName);
+      
+      // Auto-set the property type dropdown if it exists to match tab category
+      if (typeSelect) {
+        if (tabName === 'land') {
+          typeSelect.value = 'Land';
+        } else if (tabName === 'commercial') {
+          typeSelect.value = 'Commercial';
+        } else {
+          typeSelect.value = ''; // Reset to default
+        }
+      }
     });
   });
+
+  if (typeSelect) {
+    typeSelect.addEventListener('change', (e) => {
+      updateBedroomsVisibility(e.target.value);
+    });
+  }
 
   /* ----------------------------------------------------------
      PROPERTY FILTER PILLS
