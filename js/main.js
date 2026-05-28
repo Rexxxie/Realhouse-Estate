@@ -342,21 +342,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ----------------------------------------------------------
-     WISHLIST TOGGLE
+     WISHLIST TOGGLE (persists to localStorage)
   ---------------------------------------------------------- */
-  document.querySelectorAll('.property-card__wishlist').forEach(btn => {
+  const savedWishlist = JSON.parse(localStorage.getItem('rh_wishlist') || '[]');
+
+  function getPropertyId(card) {
+    const titleEl = card.querySelector('.property-card__title');
+    return titleEl ? titleEl.textContent.trim() : '';
+  }
+
+  document.querySelectorAll('.property-card').forEach(card => {
+    const btn = card.querySelector('.property-card__wishlist');
+    if (!btn) return;
+    const propId = getPropertyId(card);
+    const icon = btn.querySelector('i');
+
+    // Restore state on load
+    if (savedWishlist.includes(propId)) {
+      btn.classList.add('active');
+      if (icon) { icon.className = 'fas fa-heart'; icon.style.color = '#e11d48'; }
+    }
+
     btn.addEventListener('click', () => {
       btn.classList.toggle('active');
-      const icon = btn.querySelector('i');
+      const wishlist = JSON.parse(localStorage.getItem('rh_wishlist') || '[]');
       if (btn.classList.contains('active')) {
-        icon.className = 'fas fa-heart';
-        icon.style.color = '#e11d48';
+        if (icon) { icon.className = 'fas fa-heart'; icon.style.color = '#e11d48'; }
+        if (!wishlist.includes(propId)) wishlist.push(propId);
         showToast('Added to favourites!', 'success');
       } else {
-        icon.className = 'far fa-heart';
-        icon.style.color = '';
+        if (icon) { icon.className = 'far fa-heart'; icon.style.color = ''; }
+        const idx = wishlist.indexOf(propId);
+        if (idx > -1) wishlist.splice(idx, 1);
         showToast('Removed from favourites', 'success');
       }
+      localStorage.setItem('rh_wishlist', JSON.stringify(wishlist));
     });
   });
 
@@ -629,15 +649,104 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ----------------------------------------------------------
-     PAGINATION (properties page)
+     SORT PROPERTIES (properties page)
   ---------------------------------------------------------- */
-  document.querySelectorAll('.page-btn:not(.page-btn--prev):not(.page-btn--next)').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  const sortSelect = document.getElementById('propertySortSelect');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', () => {
+      const grid = document.getElementById('propertiesGrid');
+      if (!grid) return;
+      const cards = Array.from(grid.querySelectorAll('.property-card'));
+
+      function parsePrice(card) {
+        const priceEl = card.querySelector('.property-card__price');
+        if (!priceEl) return 0;
+        const text = priceEl.textContent.replace(/[^0-9.]/g, '');
+        return parseFloat(text) || 0;
+      }
+
+      const value = sortSelect.value;
+      if (value === 'price-asc') {
+        cards.sort((a, b) => parsePrice(a) - parsePrice(b));
+      } else if (value === 'price-desc') {
+        cards.sort((a, b) => parsePrice(b) - parsePrice(a));
+      }
+      // 'newest' / 'popular' keep DOM order (default)
+
+      cards.forEach(card => grid.appendChild(card));
+    });
+  }
+
+  /* ----------------------------------------------------------
+     CITY CARD → FILTER (index page)
+  ---------------------------------------------------------- */
+  document.querySelectorAll('.city-card').forEach(card => {
+    const cityName = card.querySelector('h3');
+    if (!cityName) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      window.location.href = `properties.html?location=${encodeURIComponent(cityName.textContent.trim())}`;
     });
   });
+
+  /* ----------------------------------------------------------
+     BLOG CATEGORY PILL FILTERING
+  ---------------------------------------------------------- */
+  const blogPills = document.querySelectorAll('.blog-cat-pill');
+  if (blogPills.length > 0) {
+    blogPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        blogPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const category = pill.textContent.trim().toLowerCase();
+        const blogCards = document.querySelectorAll('.blog-card');
+        blogCards.forEach(card => {
+          if (category === 'all articles') {
+            card.style.display = '';
+          } else {
+            const cardCat = card.querySelector('.blog-card__category');
+            const cardCatText = cardCat ? cardCat.textContent.trim().toLowerCase() : '';
+            if (cardCatText.includes(category.replace(/s$/, ''))) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
+     COOKIE CONSENT BANNER
+  ---------------------------------------------------------- */
+  if (!localStorage.getItem('rh_cookie_consent')) {
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.innerHTML = `
+      <div class="cookie-banner__inner">
+        <p><i class="fas fa-cookie-bite"></i> We use cookies to enhance your experience. By continuing to browse, you agree to our <a href="#">Cookie Policy</a>.</p>
+        <div class="cookie-banner__actions">
+          <button class="btn btn--gold btn--sm" id="cookieAcceptBtn">Accept All</button>
+          <button class="btn btn--outline btn--sm" id="cookieDeclineBtn">Decline</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(banner);
+    // Animate in after a brief delay
+    requestAnimationFrame(() => { requestAnimationFrame(() => { banner.classList.add('cookie-banner--visible'); }); });
+
+    document.getElementById('cookieAcceptBtn').addEventListener('click', () => {
+      localStorage.setItem('rh_cookie_consent', 'accepted');
+      banner.classList.remove('cookie-banner--visible');
+      setTimeout(() => banner.remove(), 400);
+    });
+    document.getElementById('cookieDeclineBtn').addEventListener('click', () => {
+      localStorage.setItem('rh_cookie_consent', 'declined');
+      banner.classList.remove('cookie-banner--visible');
+      setTimeout(() => banner.remove(), 400);
+    });
+  }
 
   /* ----------------------------------------------------------
      PROPERTY DETAILS MODAL SYSTEM (Progressive Enhancement)

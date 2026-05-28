@@ -123,17 +123,17 @@
     <div class="container">
       <div class="listing-header">
         <div class="listing-header__info">
-          <h2>Showing <strong>5,248</strong> Properties</h2>
+          <h2>Showing <strong>9</strong> Properties</h2>
           <p>Updated daily with new listings</p>
         </div>
         <div class="listing-header__controls">
           <div class="sort-control">
             <label><i class="fas fa-sort"></i> Sort by:</label>
-            <select>
-              <option>Newest First</option>
-              <option>Price: Low to High</option>
-              <option>Price: High to Low</option>
-              <option>Most Popular</option>
+            <select id="propertySortSelect">
+              <option value="newest">Newest First</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="popular">Most Popular</option>
             </select>
           </div>
           <div class="view-toggle">
@@ -293,15 +293,9 @@
 
       </div>
 
-      <!-- PAGINATION -->
-      <div class="pagination">
-        <button class="page-btn page-btn--prev" disabled><i class="fas fa-chevron-left"></i></button>
-        <button class="page-btn active">1</button>
-        <button class="page-btn">2</button>
-        <button class="page-btn">3</button>
-        <span class="page-dots">...</span>
-        <button class="page-btn">24</button>
-        <button class="page-btn page-btn--next"><i class="fas fa-chevron-right"></i></button>
+      <!-- RESULTS INFO -->
+      <div class="results-info">
+        <p>Showing all available properties. <a href="contact.html" style="color:var(--gold);font-weight:600;">Have a property to list? Contact us →</a></p>
       </div>
     </div>
   </section>
