@@ -176,4 +176,4 @@ All photography sourced from [Unsplash](https://unsplash.com) under the free Uns
 
 ---
 
-*Built with ❤️ for Realhouse Estate · © 2025 All rights reserved*
+*Built with ❤️ for Realhouse Estate · © 2026 All rights reserved*
