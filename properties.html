@@ -65,18 +65,19 @@
           <button class="search-tab" data-tab="commercial">Commercial</button>
         </div>
         <div class="search-box__form">
-          <div class="search-field">
+          <div class="search-field" id="searchLocationField">
             <i class="fas fa-map-marker-alt"></i>
-            <select>
+            <select id="searchLocationSelect" class="search-location-select">
               <option value="">Select Location</option>
-              <option>Greater London</option><option>Edinburgh (Scotland)</option><option>Greater Manchester</option>
-              <option>West Midlands</option><option>Bristol</option><option>Bath</option>
-              <option>Yorkshire</option><option>Oxfordshire</option>
+              <option value="London">London (Greater London)</option>
+              <option value="Edinburgh">Edinburgh (Scotland)</option>
+              <option value="Windsor">Windsor (Berkshire)</option>
+              <option value="Wilmslow">Wilmslow (Cheshire)</option>
             </select>
           </div>
           <div class="search-field" id="searchTypeField">
             <i class="fas fa-home"></i>
-            <select>
+            <select id="searchTypeSelect" class="search-type-select">
               <option value="">Property Type</option>
               <option>Detached Duplex</option><option>Semi-Detached Duplex</option>
               <option>Terrace House</option><option>Flat / Apartment</option>
@@ -85,7 +86,7 @@
           </div>
           <div class="search-field" id="searchMeasurementField" style="display: none;">
             <i class="fas fa-ruler-combined"></i>
-            <select>
+            <select id="searchMeasurementSelect" class="search-measurement-select">
               <option value="">Size</option>
               <option>Below 500 sqm</option>
               <option>500 sqm – 1,000 sqm</option>
@@ -95,18 +96,20 @@
           </div>
           <div class="search-field" id="searchBedroomsField">
             <i class="fas fa-bed"></i>
-            <select>
+            <select id="searchBedroomsSelect" class="search-bedrooms-select">
               <option value="">Bedrooms</option>
               <option>1 Bedroom</option><option>2 Bedrooms</option><option>3 Bedrooms</option>
               <option>4 Bedrooms</option><option>5+ Bedrooms</option>
             </select>
           </div>
-          <div class="search-field">
+          <div class="search-field" id="searchPriceField">
             <i class="fas fa-tag"></i>
-            <select>
+            <select id="searchPriceSelect" class="search-price-select">
               <option value="">Price Range</option>
-              <option>Below £50k</option><option>£50k – £200k</option><option>£200k – £500k</option>
-              <option>£500k – £1M</option><option>£1M – £5M</option><option>Above £5M</option>
+              <option value="Below £500k">Below £500k</option>
+              <option value="£500k – £1M">£500k – £1M</option>
+              <option value="£1M – £2M">£1M – £2M</option>
+              <option value="Above £2M">Above £2M</option>
             </select>
           </div>
           <button class="btn btn--gold btn--search"><i class="fas fa-search"></i> Search</button>

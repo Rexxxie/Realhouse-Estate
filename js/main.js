@@ -1,8 +1,8 @@
 /* ============================================================
    Realhouse Estate – main.js
 ============================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
+  let executeSearch = () => {};
 
   /* ----------------------------------------------------------
      STICKY HEADER
@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.3 });
 
-  const heroSection = document.getElementById('home');
   if (heroSection) heroObserver.observe(heroSection);
 
   /* ----------------------------------------------------------
@@ -160,12 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bedroomsField = document.getElementById('searchBedroomsField');
   const typeField = document.getElementById('searchTypeField');
   const measurementField = document.getElementById('searchMeasurementField');
-  const allSelects = document.querySelectorAll('.search-box__form select');
-  
-  // Find the Property Type select dropdown dynamically
-  const typeSelect = Array.from(allSelects).find(select => {
-    return select.options[0] && select.options[0].textContent.includes('Property Type');
-  });
+  const typeSelect = document.getElementById('searchTypeSelect');
 
   const updateSearchFields = (category) => {
     const cleanCategory = (category || '').toLowerCase().trim();
@@ -188,6 +182,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  /* ----------------------------------------------------------
+     DYNAMIC PRICE RANGE OPTIONS GENERATOR
+     ---------------------------------------------------------- */
+  const updatePriceRangeOptions = (category, selectedVal = '') => {
+    const cleanCategory = (category || '').toLowerCase().trim();
+    const priceSelects = document.querySelectorAll('.search-price-select');
+    
+    let optionsHtml = '<option value="">Price Range</option>';
+    if (cleanCategory === 'rent') {
+      optionsHtml += `
+        <option value="Below £3k">Below £3,000 /mo</option>
+        <option value="£3k – £6k">£3,000 – £6,000 /mo</option>
+        <option value="Above £6k">Above £6,000 /mo</option>
+      `;
+    } else if (cleanCategory === 'shortlet') {
+      optionsHtml += `
+        <option value="Below £200">Below £200 /night</option>
+        <option value="£200 – £400">£200 – £400 /night</option>
+        <option value="Above £400">Above £400 /night</option>
+      `;
+    } else {
+      // buy, land, commercial
+      optionsHtml += `
+        <option value="Below £500k">Below £500k</option>
+        <option value="£500k – £1M">£500k – £1M</option>
+        <option value="£1M – £2M">£1M – £2M</option>
+        <option value="Above £2M">Above £2M</option>
+      `;
+    }
+    
+    priceSelects.forEach(select => {
+      select.innerHTML = optionsHtml;
+      if (selectedVal) {
+        select.value = selectedVal;
+      }
+    });
+  };
+
   searchTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       searchTabs.forEach(t => t.classList.remove('active'));
@@ -195,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       const tabName = tab.getAttribute('data-tab');
       updateSearchFields(tabName);
+      updatePriceRangeOptions(tabName);
       
       // Auto-set the property type dropdown if it exists to match tab category
       if (typeSelect) {
@@ -204,6 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
           typeSelect.value = 'Commercial';
         } else {
           typeSelect.value = ''; // Reset to default
+        }
+      }
+
+      // Synchronize with filter pills if they exist on properties.html
+      const pills = document.querySelectorAll('.pill');
+      if (pills.length > 0) {
+        const matchingPill = Array.from(pills).find(p => p.getAttribute('data-filter') === tabName);
+        if (matchingPill) {
+          pills.forEach(p => p.classList.remove('active'));
+          matchingPill.classList.add('active');
         }
       }
     });
@@ -216,8 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ----------------------------------------------------------
-     PROPERTY FILTER PILLS
-  ---------------------------------------------------------- */
+     PROPERTY FILTER PILLS & SEARCH SYNCHRONIZATION
+     ---------------------------------------------------------- */
   const pills = document.querySelectorAll('.pill');
   const propertyCards = document.querySelectorAll('.property-card');
 
@@ -227,21 +270,73 @@ document.addEventListener('DOMContentLoaded', () => {
       pill.classList.add('active');
 
       const filter = pill.getAttribute('data-filter');
+      
+      if (filter === 'all') {
+        // Reset all search selects
+        const locationSelect = document.getElementById('searchLocationSelect');
+        if (locationSelect) locationSelect.value = '';
+        const typeSelectField = document.getElementById('searchTypeSelect');
+        if (typeSelectField) typeSelectField.value = '';
+        const measurementSelect = document.getElementById('searchMeasurementSelect');
+        if (measurementSelect) measurementSelect.value = '';
+        const bedroomsSelect = document.getElementById('searchBedroomsSelect');
+        if (bedroomsSelect) bedroomsSelect.value = '';
+        const priceSelect = document.getElementById('searchPriceSelect');
+        if (priceSelect) priceSelect.value = '';
 
-      propertyCards.forEach(card => {
-        const category = card.getAttribute('data-category') || '';
-
-        if (filter === 'all' || category.includes(filter)) {
+        // Show all properties
+        propertyCards.forEach(card => {
           card.style.display = '';
-          // Re-trigger animation
           card.classList.remove('reveal', 'revealed');
           void card.offsetWidth;
-          card.classList.add('reveal');
-          setTimeout(() => card.classList.add('revealed'), 30);
-        } else {
-          card.style.display = 'none';
+          card.classList.add('revealed');
+        });
+
+        // Update listings count
+        const listingHeader = document.querySelector('.listing-header__info h2');
+        if (listingHeader) {
+          listingHeader.innerHTML = `Showing <strong>${propertyCards.length}</strong> Properties`;
         }
-      });
+        return;
+      }
+
+      let targetTab = filter;
+      if (filter === 'new') {
+        targetTab = 'buy';
+      }
+
+      const matchingTab = Array.from(searchTabs).find(t => t.getAttribute('data-tab') === targetTab);
+      if (matchingTab) {
+        searchTabs.forEach(t => t.classList.remove('active'));
+        matchingTab.classList.add('active');
+        updateSearchFields(targetTab);
+        updatePriceRangeOptions(targetTab);
+      }
+
+      if (filter === 'new') {
+        let matchCount = 0;
+        propertyCards.forEach(card => {
+          const category = card.getAttribute('data-category') || '';
+          if (category.includes('new')) {
+            card.style.display = '';
+            matchCount++;
+            card.classList.remove('reveal', 'revealed');
+            void card.offsetWidth;
+            card.classList.add('revealed');
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        const listingHeader = document.querySelector('.listing-header__info h2');
+        if (listingHeader) {
+          listingHeader.innerHTML = `Showing <strong>${matchCount}</strong> Properties`;
+        }
+      } else {
+        // Execute search immediately
+        if (typeof executeSearch === 'function') {
+          executeSearch(false);
+        }
+      }
     });
   });
 
@@ -797,6 +892,254 @@ document.addEventListener('DOMContentLoaded', () => {
         openPropertyModal(card);
       }
     });
+  }
+
+  /* ----------------------------------------------------------
+     FULLY FUNCTIONAL SEARCH ENGINE & FILTER CONTROLLER
+     ---------------------------------------------------------- */
+  const searchForm = document.querySelector('.search-box__form');
+  if (searchForm) {
+    // 1. Assign Unified Search Handler to the outer scoped variable
+    executeSearch = (isRedirect = false) => {
+      const activeTab = document.querySelector('.search-tab.active');
+      const tabName = activeTab ? activeTab.getAttribute('data-tab') : '';
+      
+      const locationSelect = document.getElementById('searchLocationSelect');
+      const location = locationSelect ? locationSelect.value : '';
+      
+      const typeSelectField = document.getElementById('searchTypeField');
+      const type = (typeSelectField && typeSelectField.style.display !== 'none') ? document.getElementById('searchTypeSelect').value : '';
+      
+      const measurementSelectField = document.getElementById('searchMeasurementField');
+      const size = (measurementSelectField && measurementSelectField.style.display !== 'none') ? document.getElementById('searchMeasurementSelect').value : '';
+      
+      const bedroomsSelectField = document.getElementById('searchBedroomsField');
+      const beds = (bedroomsSelectField && bedroomsSelectField.style.display !== 'none') ? document.getElementById('searchBedroomsSelect').value : '';
+      
+      const priceSelect = document.getElementById('searchPriceSelect');
+      const price = priceSelect ? priceSelect.value : '';
+
+      if (isRedirect) {
+        // We are on index.html, redirect to properties.html with query parameters!
+        const queryParams = new URLSearchParams({
+          tab: tabName,
+          location: location,
+          type: type,
+          size: size,
+          beds: beds,
+          price: price
+        });
+        window.location.href = `properties.html?${queryParams.toString()}`;
+        return;
+      }
+
+      // We are on properties.html, execute the local filtering!
+      const cards = document.querySelectorAll('#propertiesGrid .property-card');
+      let matchCount = 0;
+
+      cards.forEach(card => {
+        const title = card.querySelector('.property-card__title').textContent.trim();
+        const locationText = card.querySelector('.property-card__location').textContent.trim();
+        const category = card.getAttribute('data-category') || '';
+        
+        // Extract raw number from price text (e.g. £2,500,000 -> 2500000, £7,000 /mo -> 7000)
+        const priceText = card.querySelector('.property-card__price').textContent;
+        const rawPrice = parseInt(priceText.replace(/[^0-9]/g, ''), 10) || 0;
+
+        // Parse Specs from HTML features
+        const featuresText = card.querySelector('.property-card__features').textContent.trim();
+
+        // 1. Tab Match
+        let isTabMatch = true;
+        if (tabName === 'land') {
+          isTabMatch = category.includes('land');
+        } else if (tabName === 'commercial') {
+          isTabMatch = category.includes('commercial');
+        } else if (tabName === 'rent') {
+          isTabMatch = category.includes('rent') && !category.includes('shortlet');
+        } else if (tabName === 'shortlet') {
+          isTabMatch = category.includes('shortlet');
+        } else if (tabName === 'buy') {
+          isTabMatch = category.includes('buy');
+        }
+
+        // 2. Location Match (clean, direct substring search)
+        let isLocationMatch = true;
+        if (location) {
+          isLocationMatch = locationText.toLowerCase().includes(location.toLowerCase());
+        }
+
+        // 3. Property Type Match
+        let isTypeMatch = true;
+        if (type) {
+          if (type === 'Flat / Apartment') {
+            isTypeMatch = title.includes('Apartment') || title.includes('Penthouse');
+          } else if (type === 'Commercial') {
+            isTypeMatch = title.includes('Office') || title.includes('Complex');
+          } else {
+            isTypeMatch = title.toLowerCase().includes(type.toLowerCase());
+          }
+        }
+
+        // 4. Size Match
+        let isSizeMatch = true;
+        if (size && (tabName === 'land' || category.includes('land'))) {
+          // Extract size from feature text (e.g. 1,200 sqm)
+          const sizeNum = parseInt(featuresText.replace(/[^0-9]/g, ''), 10) || 0;
+          if (size === 'Below 500 sqm') {
+            isSizeMatch = sizeNum < 500;
+          } else if (size === '500 sqm – 1,000 sqm') {
+            isSizeMatch = sizeNum >= 500 && sizeNum <= 1000;
+          } else if (size === '1,000 sqm – 2,000 sqm') {
+            isSizeMatch = sizeNum >= 1000 && sizeNum <= 2000;
+          } else if (size === 'Above 2,000 sqm') {
+            isSizeMatch = sizeNum > 2000;
+          }
+        }
+
+        // 5. Bedrooms Match
+        let isBedsMatch = true;
+        if (beds && tabName !== 'land' && tabName !== 'commercial' && !category.includes('land') && !category.includes('commercial')) {
+          const bedNumMatch = featuresText.match(/([0-9]+)\s*Bed/i);
+          const bedNum = bedNumMatch ? parseInt(bedNumMatch[1], 10) : 0;
+          
+          if (beds === '1 Bedroom') {
+            isBedsMatch = bedNum === 1;
+          } else if (beds === '2 Bedrooms') {
+            isBedsMatch = bedNum === 2;
+          } else if (beds === '3 Bedrooms') {
+            isBedsMatch = bedNum === 3;
+          } else if (beds === '4 Bedrooms') {
+            isBedsMatch = bedNum === 4;
+          } else if (beds === '5+ Bedrooms') {
+            isBedsMatch = bedNum >= 5;
+          }
+        }
+
+        // 6. Price Match
+        let isPriceMatch = true;
+        if (price) {
+          if (tabName === 'rent') {
+            if (price === 'Below £3k') {
+              isPriceMatch = rawPrice < 3000;
+            } else if (price === '£3k – £6k') {
+              isPriceMatch = rawPrice >= 3000 && rawPrice <= 6000;
+            } else if (price === 'Above £6k') {
+              isPriceMatch = rawPrice > 6000;
+            }
+          } else if (tabName === 'shortlet') {
+            if (price === 'Below £200') {
+              isPriceMatch = rawPrice < 200;
+            } else if (price === '£200 – £400') {
+              isPriceMatch = rawPrice >= 200 && rawPrice <= 400;
+            } else if (price === 'Above £400') {
+              isPriceMatch = rawPrice > 400;
+            }
+          } else {
+            // buy, land, commercial
+            if (price === 'Below £500k') {
+              isPriceMatch = rawPrice < 500000;
+            } else if (price === '£500k – £1M') {
+              isPriceMatch = rawPrice >= 500000 && rawPrice <= 1000000;
+            } else if (price === '£1M – £2M') {
+              isPriceMatch = rawPrice >= 1000000 && rawPrice <= 2000000;
+            } else if (price === 'Above £2M') {
+              isPriceMatch = rawPrice > 2000000;
+            }
+          }
+        }
+
+        // Final Intersection Filtering
+        if (isTabMatch && isLocationMatch && isTypeMatch && isSizeMatch && isBedsMatch && isPriceMatch) {
+          card.style.display = '';
+          matchCount++;
+          // Trigger entry fade-in animation
+          card.classList.remove('reveal', 'revealed');
+          void card.offsetWidth;
+          card.classList.add('revealed');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Update the list count header dynamic text
+      const listingHeader = document.querySelector('.listing-header__info h2');
+      if (listingHeader) {
+        listingHeader.innerHTML = `Showing <strong>${matchCount}</strong> Properties`;
+      }
+    };
+
+    // 2. Attach Search Button Event Listeners
+    const searchBtn = document.querySelector('.btn--search');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // If on homepage (index.html), we don't have properties grid, redirect!
+        const isHomepage = !!document.getElementById('home');
+        executeSearch(isHomepage);
+      });
+    }
+
+    // 3. Process incoming query parameters on properties.html page load
+    const processQueryParams = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.toString() === '') {
+        // Run initial price range update on page load even if there are no params
+        const activeTab = document.querySelector('.search-tab.active');
+        const tabName = activeTab ? activeTab.getAttribute('data-tab') : 'buy';
+        updatePriceRangeOptions(tabName);
+        return;
+      }
+
+      const tab = params.get('tab');
+      const location = params.get('location');
+      const type = params.get('type');
+      const size = params.get('size');
+      const beds = params.get('beds');
+      const price = params.get('price');
+
+      // Set Active Category Tab
+      if (tab) {
+        const matchingTab = Array.from(searchTabs).find(t => t.getAttribute('data-tab') === tab);
+        if (matchingTab) {
+          searchTabs.forEach(t => t.classList.remove('active'));
+          matchingTab.classList.add('active');
+          updateSearchFields(tab);
+          
+          // Sync with filter pills if they exist
+          const pills = document.querySelectorAll('.pill');
+          if (pills.length > 0) {
+            const matchingPill = Array.from(pills).find(p => p.getAttribute('data-filter') === tab);
+            if (matchingPill) {
+              pills.forEach(p => p.classList.remove('active'));
+              matchingPill.classList.add('active');
+            }
+          }
+        }
+      }
+
+      // Update price options first before setting its value
+      updatePriceRangeOptions(tab || 'buy', price);
+
+      // Populating dropdown select fields
+      const locationSelect = document.getElementById('searchLocationSelect');
+      if (locationSelect && location) locationSelect.value = location;
+
+      const typeSelectField = document.getElementById('searchTypeSelect');
+      if (typeSelectField && type) typeSelectField.value = type;
+
+      const measurementSelect = document.getElementById('searchMeasurementSelect');
+      if (measurementSelect && size) measurementSelect.value = size;
+
+      const bedroomsSelect = document.getElementById('searchBedroomsSelect');
+      if (bedroomsSelect && beds) bedroomsSelect.value = beds;
+
+      // Execute search immediately after populating values
+      executeSearch(false);
+    };
+
+    // Run query params processor on load
+    processQueryParams();
   }
 
 });
