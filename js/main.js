@@ -725,7 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.className = 'cookie-banner';
     banner.innerHTML = `
       <div class="cookie-banner__inner">
-        <p><i class="fas fa-cookie-bite"></i> We use cookies to enhance your experience. By continuing to browse, you agree to our <a href="#">Cookie Policy</a>.</p>
+        <p><i class="fas fa-cookie-bite"></i> We use cookies to enhance your experience. By continuing to browse, you agree to our <a href="cookie-policy.html">Cookie Policy</a>.</p>
         <div class="cookie-banner__actions">
           <button class="btn btn--gold btn--sm" id="cookieAcceptBtn">Accept All</button>
           <button class="btn btn--outline btn--sm" id="cookieDeclineBtn">Decline</button>
